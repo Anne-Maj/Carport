@@ -5,6 +5,13 @@
     <title>Materialeliste</title>
 </head>
 
+<h2>Tak for din bestilling</h2>
+<br>
+<h4>Du har valgt en carport med følgende mål:</h4>
+<br>
+<h5>Højde: ${requestScope.height} cm, bredde: ${requestScope.width} cm, længde: ${requestScope.length} cm</h5>
+<br>
+<h4>Materialeliste</h4>
 <div class="row">
     <div class="col-sm">
         <table class="table table-striped">
