@@ -10,9 +10,9 @@ public class Calculator {
     private boolean flat;
     private boolean shed;
 
-    int carportWidth = 2000;
-    int carportLength = 3000;
-    int carportHeight = 4000;
+    int carportWidth = 0 ;
+    int carportLength = 0;
+    int carportHeight = 0;
 
     ArrayList<Material> bom = new ArrayList<>();
 
