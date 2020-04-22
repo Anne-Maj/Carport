@@ -13,13 +13,22 @@ public class AddDimensionsCommand extends Command {
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, ClassNotFoundException {
 
         HttpSession session = request.getSession();
+
         int width = Integer.parseInt(request.getParameter("width"));
         int height = Integer.parseInt(request.getParameter("height"));
         int length = Integer.parseInt(request.getParameter("length"));
 
-        // Material mat = new Material();
-        Calculator cal = new Calculator(width, height, length); // Calculator-klasse skal laves om
+        request.setAttribute("width", width);
+        request.setAttribute("height", height);
+        request.setAttribute("length", length);
 
-        return "MaterialPage";
+        Calculator cal = new Calculator();
+
+        ArrayList<Material> bom = cal.bomCalculator(width, length, height);
+
+        request.setAttribute("materialList", bom);
+
+        return "materialPage";
     }
 }
+
