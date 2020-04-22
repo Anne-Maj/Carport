@@ -38,7 +38,10 @@ CREATE TABLE `materials` (
                                           varchar(255), `price` double, primary key (`materialId`));
 
 insert into materials (category, name, description, price) VALUES
-('Træ','25x200 mm. trykimp.bræt','Stern vandbræt', 50);
+('Træ','25x200 mm. trykimp.bræt','Stern vandbræt sider', 50);
+
+insert into materials (category, name, description, price) VALUES
+('Træ','25x200 mm. trykimp.bræt','Stern vandbræt forende', 50);
 
 insert into materials (category, name, description, price) VALUES
 ('Træ','97x97 mm. trykimp. stolpe','Stolpe', 60);
@@ -50,10 +53,16 @@ insert into materials (category, name, description, price) VALUES
 ('Træ','38x73 mm. lægte ubeh.','Z til bagside af dør i skur', 20);
 
 insert into materials (category, name, description, price) VALUES
-('Træ','45x195 mm. spærtræ ubeh.','Remme i sider+spær', 250);
+('Træ','45x195 mm. spærtræ ubeh.','Remme i sider', 250);
 
 insert into materials (category, name, description, price) VALUES
-('Træ','45x95 mm reglar ubh.','Løsholter til skur sider+gavle', 80);
+('Træ','45x195 mm. spærtræ ubeh.','Spær', 250);
+
+insert into materials (category, name, description, price) VALUES
+('Træ','45x95 mm reglar ubh.','Løsholter til skur sider', 80);
+
+insert into materials (category, name, description, price) VALUES
+('Træ','45x95 mm reglar ubh.','Løsholter til skur gavle', 80);
 
 insert into materials (category, name, description, price) VALUES
 ('Træ','Færdigsamlet spær','Spær', 750);
@@ -63,6 +72,9 @@ insert into materials (category, name, description, price) VALUES
 
 insert into materials (category, name, description, price) VALUES
 ('Træ','38x73 mm. Taglægte T1','Til montering på spær', 85);
+
+insert into materials (category, name, description, price) VALUES
+('Træ','38x73 mm. Taglægte T1','Til montering af rygsten', 85);
 
 insert into materials (category, name, description, price) VALUES
 ('Tagpakken','Plastmo blåtonet 1200x1200 mm. ','Tagplade', 300);
