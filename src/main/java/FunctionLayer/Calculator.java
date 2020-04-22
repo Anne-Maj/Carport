@@ -10,60 +10,62 @@ public class Calculator {
     private boolean flat;
     private boolean shed;
 
-    int carportWidth = width;
-    int carportLength = length;
-    int carportHeight = height;
+    int carportWidth = 2000;
+    int carportLength = 3000;
+    int carportHeight = 4000;
 
     ArrayList<Material> bom = new ArrayList<>();
 
+    /*
     public Calculator(int width, int height, int length) {
         width = this.width;
         height = this.height;
         length = this.length;
     }
+     */
 
     public ArrayList<Material> bomCalculator (int width, int length, int height) throws LoginSampleException, ClassNotFoundException {
 
-    if (width == 0 || length == 0 || height == 0) {
-        //TODO: returner fejlbesked
+        if (width == 0 || length == 0 || height == 0) {
+            //TODO: returner fejlbesked
+        }
+
+        //Tilføjer materiale ID 1:
+        addMaterial1();
+        addMaterial2();
+        addMaterial3();
+        addMaterial6();
+        addMaterial7();
+        addMaterial2();
+        addMaterial14();
+        addMaterial18();
+        addMaterial22();
+        addMaterial23();
+        addMaterial24();
+        addMaterial25();
+        addMaterial27();
+        addMaterial28();
+
+
+        return bom;
     }
 
-    //Tilføjer materiale ID 1:
-    addMaterial1();
-    addMaterial2();
-    addMaterial3();
-    addMaterial6();
-    addMaterial7();
-    addMaterial2();
-    addMaterial14();
-    addMaterial18();
-    addMaterial22();
-    addMaterial23();
-    addMaterial24();
-    addMaterial25();
-    addMaterial27();
-    addMaterial28();
+    //Materiale 1 bliver tilføjet:
+    public void addMaterial1 () throws LoginSampleException, ClassNotFoundException {
+        int materialId = 1;
+        int fixedQuantity = 2;
+        int minimumLength = 600;
 
+        Material mat = LogicFacade.showMaterial(materialId);
 
-    return bom;
-}
+        mat.setLength(minimumLength + carportLength);
+        mat.setQuantity(fixedQuantity);
 
-//Materiale 1 bliver tilføjet:
-public void addMaterial1 () throws LoginSampleException, ClassNotFoundException {
-    int materialId = 1;
-    int fixedQuantity = 2;
-    int minimumLength = 600;
+        bom.add(mat);
 
-    Material mat = LogicFacade.showMaterial(materialId);
+        //Forklaring til formel: 300 mm udhæng i hver ende og et bræt på hver side. Derfor starter værdien på 1200 mm. TODO: Find ud af om forklaring skal med
 
-    mat.setLength(minimumLength + carportLength);
-    mat.setQuantity(fixedQuantity);
-
-    bom.add(mat);
-
-    //Forklaring til formel: 300 mm udhæng i hver ende og et bræt på hver side. Derfor starter værdien på 1200 mm. TODO: Find ud af om forklaring skal med
-
-}
+    }
 
     //Materiale 2 bliver tilføjet:
     public void addMaterial2 () throws LoginSampleException, ClassNotFoundException {
@@ -126,7 +128,7 @@ public void addMaterial1 () throws LoginSampleException, ClassNotFoundException 
         int fixedNumber = 600;
         int divisor = 1000000;
         Material mat = LogicFacade.showMaterial(materialId);
-        mat.setQuantity(((carportLength+fixedNumber) * (carportWidth+fixedNumber))/divider);
+        mat.setQuantity(((carportLength+fixedNumber) * (carportWidth+fixedNumber))/divisor);
         bom.add(mat);
     }
 
@@ -136,7 +138,7 @@ public void addMaterial1 () throws LoginSampleException, ClassNotFoundException 
         int fixedNumber = 1000000;
         int divisor = 15;
         Material mat = LogicFacade.showMaterial(materialId);
-        mat.setQuantity((carportLength*carportWidth)/fixedNumber/divider);
+        mat.setQuantity((carportLength*carportWidth)/fixedNumber/divisor);
         bom.add(mat);
     }
 
