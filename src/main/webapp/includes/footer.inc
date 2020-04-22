@@ -11,19 +11,19 @@
         crossorigin="anonymous"></script>
 <html>
 <div style="text-align: center;">
-        <div class="container">
+    <div class="container">
 
-            <div class="pull-left">
-                Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439
-                <br>
-            </div>
-            <div class="pull-right">
-                Alle priser er inkl. moms
-                <br>
-                <br>
-                <br>
-            </div>
+        <div class="pull-left">
+            Johannes Fog A/S - Firskovvej 20 - 2800 Lyngby - CVR-nr. 16314439
+            <br>
         </div>
+        <div class="pull-right">
+            Alle priser er inkl. moms
+            <br>
+            <br>
+            <br>
+        </div>
+    </div>
 
 
 </html>
