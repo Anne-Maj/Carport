@@ -77,4 +77,16 @@ public class Material {
     public void setPrice(Double price) {
         this.price = price;
     }
+
+    @Override
+    public String toString() {
+        return "Material{" +
+                "category='" + category + '\'' +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", quantity=" + quantity +
+                ", length=" + length +
+                ", price=" + price +
+                '}';
+    }
 }
