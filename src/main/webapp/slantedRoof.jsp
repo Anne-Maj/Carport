@@ -14,11 +14,12 @@
         request.getServletContext().setAttribute("height", Initializer.getHeightsList());
     }
     if (request.getServletContext().getAttribute("roofMaterial") == null) {
-        request.getServletContext().setAttribute("roofMaterial", Initializer.getFlatroofMaterialList());
+        request.getServletContext().setAttribute("roofMaterial", Initializer.getSlantedRoofMaterialType());
     }
     if (request.getServletContext().getAttribute("flatRoof") == null) {
-        request.getServletContext().setAttribute("flatRoof", true);
+        request.getServletContext().setAttribute("flatRoof", false);
     }
+
 %>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -29,9 +30,9 @@
 <br>
 <br>
 
-<h3>Design carport med fladt tag</h3>
+<h3>Design carport med rejsning</h3>
 
-    <a href="FrontController?target=redirect&destination=slantedRoof">Eller gå til carport med rejsning</a>
+    <a href="FrontController?target=redirect&destination=index">Eller gå til carport med fladt tag</a>
 
 <br>
 <br>

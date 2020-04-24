@@ -20,6 +20,13 @@ CREATE TABLE `height` (
                           `height` int(4) NOT NULL,
                           PRIMARY KEY (`heightId`)
 );
+DROP TABLE IF EXISTS `roofMaterial`;
+CREATE TABLE `roofMaterial` (
+                          `roofMaterialId` int NOT NULL AUTO_INCREMENT,
+                          `roofMaterial` varchar(40) NOT NULL,
+                          flatRoof boolean NOT NULL,
+                          PRIMARY KEY (`roofMaterialId`)
+);
 
 insert into height (height) values (2000);
 insert into height (height) values (2200);
@@ -30,6 +37,12 @@ insert into width (width) values (4400);
 insert into length (length) values (2800);
 insert into length (length) values (3800);
 insert into length (length) values (4800);
+insert into roofMaterial (roofMaterial, flatRoof) values ('Plastmo sort', 1);
+insert into roofMaterial (roofMaterial, flatRoof) values ('Plastmo gennemsigtig', 1);
+insert into roofMaterial (roofMaterial, flatRoof) values ('Plastmo hvid', 1);
+insert into roofMaterial (roofMaterial, flatRoof) values ('Tagsten sort', 0);
+insert into roofMaterial (roofMaterial, flatRoof) values ('Tagpap sort', 0);
+insert into roofMaterial (roofMaterial, flatRoof) values ('Trapez plast sort', 0);
 
 DROP TABLE IF EXISTS `materials`;
 
@@ -135,3 +148,18 @@ insert into materials (category, name, description, price) VALUES
 
 insert into materials (category, name, description, price) VALUES
 ('Beslag & skruer','4,5 x 50 mm. skruer 300 stk.','Til montering af inderste beklædning', 450);
+
+insert into materials (category, name, description, price) VALUES
+('Tagpakken','Plastmo sort 1200x1200 mm. ','Tagplade', 300);
+
+insert into materials (category, name, description, price) VALUES
+('Tagpakken','Plastmo gennemsigtig 1200x1200 mm. ','Tagplade', 300);
+
+insert into materials (category, name, description, price) VALUES
+('Tagpakken','Plastmo hvid 1200x1200 mm. ','Tagplade', 300);
+
+insert into materials (category, name, description, price) VALUES
+('Tagpakken','Tagpap','Tagpap sort', 100);
+
+insert into materials (category, name, description, price) VALUES
+('Tagpakken','Tagplade','Trapez plast sort', 100);

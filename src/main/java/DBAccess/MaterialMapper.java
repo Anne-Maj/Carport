@@ -1,6 +1,7 @@
 package DBAccess;
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.Material;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -56,5 +57,45 @@ public class MaterialMapper {
             e.printStackTrace();
         }
         return material;
+    }
+
+    public static ArrayList<String> getFlatRoofMaterialList() throws ClassNotFoundException, LoginSampleException {
+        String sql = "SELECT * FROM fog.roofmaterial WHERE flatRoof = 1;";
+        ArrayList<String> RoofMaterialList = new ArrayList<>();
+        try {
+            Connection con = Connector.connection();
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            ResultSet res = pstmt.executeQuery();
+            if (res == null) {
+                return null;
+            } else {
+                while (res.next()) {
+                    RoofMaterialList.add(res.getString("roofmaterial"));
+                }
+            }
+        } catch (SQLException ex) {
+            throw new LoginSampleException( ex.getMessage() );
+        }
+        return RoofMaterialList;
+    }
+
+    public static ArrayList<String> getSlantedRoofMaterialList() throws ClassNotFoundException, LoginSampleException {
+        String sql = "SELECT * FROM fog.roofmaterial WHERE flatRoof = 0;";
+        ArrayList<String> RoofMaterialList = new ArrayList<>();
+        try {
+            Connection con = Connector.connection();
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            ResultSet res = pstmt.executeQuery();
+            if (res == null) {
+                return null;
+            } else {
+                while (res.next()) {
+                    RoofMaterialList.add(res.getString("roofmaterial"));
+                }
+            }
+        } catch (SQLException ex) {
+            throw new LoginSampleException( ex.getMessage() );
+        }
+        return RoofMaterialList;
     }
 }

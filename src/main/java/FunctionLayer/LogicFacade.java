@@ -1,10 +1,9 @@
 package FunctionLayer;
 
 import DBAccess.DimensionMapper;
-import DBAccess.UserMapper;
 import DBAccess.MaterialMapper;
+import DBAccess.UserMapper;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -33,6 +32,14 @@ public class LogicFacade {
 
     public static ArrayList<Integer> showHeights() throws LoginSampleException, ClassNotFoundException {
         return DimensionMapper.getHeightList();
+    }
+
+    public static ArrayList<String> showFlatRoofMaterialList() throws LoginSampleException, ClassNotFoundException {
+        return MaterialMapper.getFlatRoofMaterialList();
+    }
+
+    public static ArrayList<String> showSlantedRoofMaterialList() throws LoginSampleException, ClassNotFoundException {
+        return MaterialMapper.getSlantedRoofMaterialList();
     }
 
     public static Material showMaterial(int materialId) throws LoginSampleException, ClassNotFoundException {

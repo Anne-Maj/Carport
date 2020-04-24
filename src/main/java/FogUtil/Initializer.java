@@ -9,6 +9,8 @@ public class Initializer {
     private static List<Integer> widthsList = null;
     private static List<Integer> lengthsList = null;
     private static List<Integer> heightsList = null;
+    private static List<String> flatRoofMaterialList = null;
+    private static List<String> slantedRoofMaterialList = null;
 
     public static List<Integer> getWidthsList() {
         if (widthsList == null) {
@@ -41,6 +43,28 @@ public class Initializer {
             }
         }
         return heightsList;
+    }
+
+    public static List<String> getFlatroofMaterialList() {
+        if (flatRoofMaterialList == null) {
+            try {
+                slantedRoofMaterialList = LogicFacade.showFlatRoofMaterialList();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return flatRoofMaterialList;
+    }
+
+    public static List<String> getSlantedRoofMaterialType() {
+        if (slantedRoofMaterialList == null) {
+            try {
+                slantedRoofMaterialList = LogicFacade.showSlantedRoofMaterialList();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return slantedRoofMaterialList;
     }
 
 }
