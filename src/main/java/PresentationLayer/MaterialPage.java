@@ -13,7 +13,9 @@ public class MaterialPage extends Command {
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, ClassNotFoundException {
         HttpSession session = request.getSession();
         ArrayList<Material> materialList = null;
+        ArrayList <Material> shedMatList = null;
         request.setAttribute("materialList", materialList);
+        request.setAttribute("shedMatList", shedMatList);
         return "materialPage";
     }
 }

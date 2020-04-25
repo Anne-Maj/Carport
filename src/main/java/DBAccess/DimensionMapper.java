@@ -66,4 +66,44 @@ public class DimensionMapper {
         return heightList;
     }
 
+    public static ArrayList<Integer> getShedLengthList() throws ClassNotFoundException, LoginSampleException {
+        String sql = "SELECT * FROM fog.shedlength;";
+        ArrayList<Integer> shedLengthList = new ArrayList<>();
+        try {
+            Connection con = Connector.connection();
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            ResultSet res = pstmt.executeQuery();
+            if (res == null) {
+                return null;
+            } else {
+                while (res.next()) {
+                    shedLengthList.add(res.getInt("shedLength"));
+                }
+            }
+        } catch (SQLException ex) {
+            throw new LoginSampleException( ex.getMessage() );
+        }
+        return shedLengthList;
+    }
+
+    public static ArrayList<Integer> getShedWidthList() throws ClassNotFoundException, LoginSampleException {
+        String sql = "SELECT * FROM fog.shedwidth;";
+        ArrayList<Integer> shedWidthList = new ArrayList<>();
+        try {
+            Connection con = Connector.connection();
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            ResultSet res = pstmt.executeQuery();
+            if (res == null) {
+                return null;
+            } else {
+                while (res.next()) {
+                    shedWidthList.add(res.getInt("shedWidth"));
+                }
+            }
+        } catch (SQLException ex) {
+            throw new LoginSampleException( ex.getMessage() );
+        }
+        return shedWidthList;
+    }
+
 }

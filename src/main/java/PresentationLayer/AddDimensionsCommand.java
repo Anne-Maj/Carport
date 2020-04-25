@@ -3,6 +3,7 @@ package PresentationLayer;
 import FunctionLayer.Calculator;
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.Material;
+import FunctionLayer.ShedCalculator;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,17 +22,26 @@ public class AddDimensionsCommand extends Command {
         boolean flatRoof = Boolean.parseBoolean(request.getParameter("flatRoof"));
         String roofMaterial = request.getParameter("roofMaterial");
 
+        int shedWidth = Integer.parseInt(request.getParameter("shedWidth"));
+        int shedLength = Integer.parseInt(request.getParameter("shedLength"));
+
         request.setAttribute("width", width);
         request.setAttribute("height", height);
         request.setAttribute("length", length);
         request.setAttribute("roofMaterial", flatRoof);
         request.setAttribute("roofMaterial", roofMaterial);
+        request.setAttribute("shedWidth", shedWidth);
+        request.setAttribute("shedLength", shedLength);
+
 
         Calculator cal = new Calculator();
+        ShedCalculator shedCal = new ShedCalculator();
 
-        ArrayList<Material> bom = cal.bomCalculator(width, length, height, flatRoof, roofMaterial);
-
+        ArrayList<Material> bom = cal.bomCalculator(width, length, height, flatRoof, roofMaterial, shedWidth, shedLength);
         request.setAttribute("materialList", bom);
+
+        ArrayList <Material> shedBom = shedCal.shedBomCalculator(shedWidth, shedLength);
+        request.setAttribute("shedMatList", shedBom);
 
         return "materialPage";
     }

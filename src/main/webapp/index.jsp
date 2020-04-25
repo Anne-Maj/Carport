@@ -19,6 +19,13 @@
     if (request.getServletContext().getAttribute("flatRoof") == null) {
         request.getServletContext().setAttribute("flatRoof", true);
     }
+
+    if (request.getServletContext().getAttribute("shedLength") == null) {
+        request.getServletContext().setAttribute("shedLength", Initializer.getShedLengthsList());
+    }
+    if (request.getServletContext().getAttribute("shedWidth") == null) {
+        request.getServletContext().setAttribute("shedWidth", Initializer.getShedWidthsList());
+    }
 %>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -78,6 +85,33 @@
                     </div>
 
                     <br>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Vælg bredde til redskabsrum:</label>
+                        <select class="form-control" name="shedWidth" id="exampleFormControlSelect4" style="width: 350px">
+                            <option value="0" selected>Ønsker ikke redskabsrum </option>
+                            <c:forEach var="shedWidth" items="${applicationScope.shedWidth}">
+                                <option value="${shedWidth}">${shedWidth} mm.</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Vælg længde til redskabsrum:</label>
+                        <select class="form-control" name="shedLength" id="exampleFormControlSelect5" style="width: 350px">
+                            <option value="0" selected>Ønsker ikke redskabsrum </option>
+                            <c:forEach var="shedLength" items="${applicationScope.shedLength}">
+                                <option value="${shedLength}">${shedLength} mm.</option>
+                            </c:forEach>
+                        </select>
+                    </div>
+
+
+                    <br>
+                    <h7>NB: Længde og bredde til redskabsrum skal være mindst 30 cm kortere end længde og bredde til carporten</h7>
+
+
 
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary">Beregn materialeliste</button>

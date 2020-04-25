@@ -46,5 +46,12 @@ public class LogicFacade {
         return MaterialMapper.getMaterial(materialId);
     }
 
+    public static ArrayList<Integer> showShedLengths() throws LoginSampleException, ClassNotFoundException {
+        return DimensionMapper.getShedLengthList();
+    }
+    public static ArrayList<Integer> showShedWidths() throws LoginSampleException, ClassNotFoundException {
+        return DimensionMapper.getShedWidthList();
+    }
+
 
 }

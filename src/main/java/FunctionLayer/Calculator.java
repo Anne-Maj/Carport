@@ -33,7 +33,7 @@ public class Calculator {
     //Instantiering af et Material objekt som addMaterialer() metoderne bruger:
     Material mat = null;
 
-    public ArrayList<Material> bomCalculator (int width, int length, int height, boolean flatRoof, String roofMaterial) throws LoginSampleException, ClassNotFoundException {
+    public ArrayList<Material> bomCalculator (int width, int length, int height, boolean flatRoof, String roofMaterial, int shedLength, int shedWidth) throws LoginSampleException, ClassNotFoundException {
 
         //Fejlmeddelelse hvis metoden modtager nul-værdier for carport bredde, længde eller højde:
         if (width == 0 || length == 0 || height == 0) {
@@ -92,6 +92,12 @@ public class Calculator {
             addMaterial38();
         } else {
             addDummyMaterial();
+        }
+
+        //Hvis kunden har valgt redskabsskur
+        if (shedLength != 0 && shedWidth != 0) {
+            ShedCalculator shedCalc = new ShedCalculator();
+            shedCalc.shedBomCalculator(shedLength, shedWidth);
         }
 
         return bom;
